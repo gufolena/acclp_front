@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Caso</title>
+    <link rel="stylesheet" href="/assets/styles/novo-caso.css">
+</head>
+<body>
+    <div class="novo-caso-container">
+        <h2 class="novo-caso-title">Cadastrar Novo Caso</h2>
+        
+        <form id="novoCasoForm" class="novo-caso-form">
+            <!-- Campos do caso -->
+            <div class="form-section">
+                <h3>Informações do Caso</h3>
+                <div class="form-group">
+                    <label for="titulo_caso">Título do Caso*</label>
+                    <input type="text" id="titulo_caso" name="titulo_caso" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="responsavel_caso">Responsável pelo Caso:</label>
+                    <select id="responsavel_caso" name="responsavel_caso" required>
+                        <option value="">Selecione um perito</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="processo_caso">Processo*</label>
+                    <input type="text" id="processo_caso" name="processo_caso" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="data_abertura_caso">Data de Abertura*</label>
+                    <input type="date" id="data_abertura_caso" name="data_abertura_caso" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="descricao_caso">Descrição*</label>
+                    <textarea id="descricao_caso" name="descricao_caso" rows="4" required></textarea>
+                </div>
+            </div>
+            
+            <!-- Novos campos da vítima -->
+            <div class="form-section">
+                <h3>Informações da Vítima</h3>
+                <div class="form-group">
+                    <label for="nome_completo_vitima_caso">Nome Completo da Vítima</label>
+                    <!-- Removemos o "required" porque não é obrigatório -->
+                    <input type="text" id="nome_completo_vitima_caso" name="nome_completo_vitima_caso" placeholder="Se não informado, será preenchido como 'Nome não informado'">
+                </div>
+                
+                <div class="form-group">
+                    <label for="data_nac_vitima_caso">Data de Nascimento</label>
+                    <input type="date" id="data_nac_vitima_caso" name="data_nac_vitima_caso">
+                </div>
+                
+                <div class="form-group">
+                    <label for="sexo_vitima_caso">Sexo</label>
+                    <select id="sexo_vitima_caso" name="sexo_vitima_caso">
+                        <option value="">Não informado</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="observacao_vitima_caso">Observações sobre a Vítima</label>
+                    <textarea id="observacao_vitima_caso" name="observacao_vitima_caso" rows="3"></textarea>
+                </div>
+            </div>
+            
+            <!-- Nova seção de evidências -->
+            <div class="form-section">
+                <h3>Evidências</h3>
+                
+                <!-- Campos de endereço -->
+                <div class="sub-section">
+                    <h4>Endereço da Coleta</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="endereco_rua">Rua</label>
+                            <input type="text" id="endereco_rua" name="endereco_rua">
+                        </div>
+                        <div class="form-group">
+                            <label for="endereco_numero">Número</label>
+                            <input type="text" id="endereco_numero" name="endereco_numero">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="endereco_bairro">Bairro</label>
+                            <input type="text" id="endereco_bairro" name="endereco_bairro">
+                        </div>
+                        <div class="form-group">
+                            <label for="endereco_cidade">Cidade</label>
+                            <input type="text" id="endereco_cidade" name="endereco_cidade">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="endereco_estado">Estado</label>
+                            <input type="text" id="endereco_estado" name="endereco_estado">
+                        </div>
+                        <div class="form-group">
+                            <label for="endereco_cep">CEP</label>
+                            <input type="text" id="endereco_cep" name="endereco_cep">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Radiografia -->
+                <div class="sub-section">
+                    <h4>Radiografia</h4>
+                    <div class="form-group">
+                        <label for="radiografia_evidencia">Upload de Radiografia</label>
+                        <input type="file" id="radiografia_evidencia" name="radiografia_evidencia" accept="image/*">
+                        <div id="radiografia_preview" class="image-preview"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="radiografia_observacao_evidencia">Observações sobre a Radiografia</label>
+                        <textarea id="radiografia_observacao_evidencia" name="radiografia_observacao_evidencia" rows="2"></textarea>
+                    </div>
+                </div>
+                
+                <!-- Odontograma -->
+                <div class="sub-section">
+                    <h4>Odontograma</h4>
+                    <div class="form-group">
+                        <label for="odontograma_evidencia">Upload de Odontograma</label>
+                        <input type="file" id="odontograma_evidencia" name="odontograma_evidencia" accept="image/*">
+                        <div id="odontograma_preview" class="image-preview"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="odontograma_observacao_evidencia">Observações sobre o Odontograma</label>
+                        <textarea id="odontograma_observacao_evidencia" name="odontograma_observacao_evidencia" rows="2"></textarea>
+                    </div>
+                </div>
+                
+                <!-- Documentos -->
+                <div class="sub-section">
+                    <h4>Documentos</h4>
+                    <div class="form-group">
+                        <label for="documentos_evidencia">Upload de Documento</label>
+                        <input type="file" id="documentos_evidencia" name="documentos_evidencia" accept="image/*,.pdf">
+                        <div id="documentos_preview" class="image-preview"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="documentos_observacao_evidencia">Observações sobre o Documento</label>
+                        <textarea id="documentos_observacao_evidencia" name="documentos_observacao_evidencia" rows="2"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Botões de ação movidos para o fim do formulário -->
+            <div class="form-actions">
+                <button type="button" id="cancelarBtn" class="btn-cancelar">Cancelar</button>
+                <button type="submit" class="btn-salvar">Salvar Caso</button>
+            </div>
+        </form>
+        
+        <div id="mensagem" class="mensagem"></div>
+    </div>
+
+    <script src="/js/features/novo-caso.js"></script>
+</body>
+</html>

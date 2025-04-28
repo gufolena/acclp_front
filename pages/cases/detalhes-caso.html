@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Caso</title>
+    <link rel="stylesheet" href="/assets/styles/detalhes-caso.css"> 
+</head>
+<body>
+    <div class="detalhes-caso-container">
+        <h2 class="detalhes-caso-title">Detalhes do Caso <span id="id-caso"></span></h2>
+        
+        <form id="detalhesCasoForm" class="detalhes-caso-form">
+            <!-- Campos do caso -->
+            <div class="form-section">
+                <h3>Informações do Caso</h3>
+                <div class="form-group">
+                    <label for="titulo_caso">Título do Caso*</label>
+                    <input type="text" id="titulo_caso" name="titulo_caso" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="responsavel_caso">Responsável*</label>
+                    <select id="responsavel_caso" name="responsavel_caso" required>
+                        <option value="">Carregando peritos...</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="processo_caso">Processo*</label>
+                    <input type="text" id="processo_caso" name="processo_caso" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="data_abertura_caso">Data de Abertura*</label>
+                    <input type="date" id="data_abertura_caso" name="data_abertura_caso" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="descricao_caso">Descrição*</label>
+                    <textarea id="descricao_caso" name="descricao_caso" rows="4" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="status_caso">Status</label>
+                    <select id="status_caso" name="status_caso">
+                        <option value="Em andamento">Em andamento</option>
+                        <option value="Arquivado">Arquivado</option>
+                        <option value="Finalizado">Finalizado</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Novos campos da vítima -->
+            <div class="form-section">
+                <h3>Informações da Vítima</h3>
+                <div class="form-group">
+                    <label for="nome_completo_vitima_caso">Nome Completo da Vítima</label>
+                    <input type="text" id="nome_completo_vitima_caso" name="nome_completo_vitima_caso">
+                </div>
+                
+                <div class="form-group">
+                    <label for="data_nac_vitima_caso">Data de Nascimento</label>
+                    <input type="date" id="data_nac_vitima_caso" name="data_nac_vitima_caso">
+                </div>
+                
+                <div class="form-group">
+                    <label for="sexo_vitima_caso">Sexo</label>
+                    <select id="sexo_vitima_caso" name="sexo_vitima_caso">
+                        <option value="">Não informado</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="observacao_vitima_caso">Observações sobre a Vítima</label>
+                    <textarea id="observacao_vitima_caso" name="observacao_vitima_caso" rows="3"></textarea>
+                </div>
+            </div>
+
+            <!-- Adicione esta nova seção após a seção de informações da vítima no formulário -->
+            <div class="form-section" id="evidencias-section">
+    <h3>Evidências</h3>
+    <div id="evidencias-container">
+        <p id="carregando-evidencias">Carregando evidências...</p>
+        <div id="sem-evidencias" style="display: none;">Nenhuma evidência encontrada para este caso.</div>
+    </div>
+
+    <div id="template-evidencia" style="display: none;">
+        <div class="evidencia-item">
+            <h4>Evidência <span class="evidencia-index"></span></h4>
+            
+            <!-- Endereço -->
+            <div class="form-group">
+                <label>Endereço</label>
+                <div class="endereco-grid">
+                    <div>
+                        <label for="rua_evidencia">Rua</label>
+                        <input type="text" class="rua_evidencia" name="rua_evidencia">
+                    </div>
+                    <div>
+                        <label for="numero_evidencia">Número</label>
+                        <input type="text" class="numero_evidencia" name="numero_evidencia">
+                    </div>
+                    <div>
+                        <label for="bairro_evidencia">Bairro</label>
+                        <input type="text" class="bairro_evidencia" name="bairro_evidencia">
+                    </div>
+                    <div>
+                        <label for="cep_evidencia">CEP</label>
+                        <input type="text" class="cep_evidencia" name="cep_evidencia">
+                    </div>
+                    <div>
+                        <label for="cidade_evidencia">Cidade</label>
+                        <input type="text" class="cidade_evidencia" name="cidade_evidencia">
+                    </div>
+                    <div>
+                        <label for="estado_evidencia">Estado</label>
+                        <input type="text" class="estado_evidencia" name="estado_evidencia">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Radiografia -->
+            <div class="form-group">
+                <label>Radiografia</label>
+                <div class="evidencia-imagem-container">
+                    <div class="evidencia-imagem-preview">
+                        <img class="radiografia_preview" src="" alt="Nenhuma imagem" style="max-width: 200px; max-height: 200px;">
+                    </div>
+                    <div class="evidencia-imagem-inputs">
+                        <input type="file" class="radiografia_input" accept="image/*">
+                        <input type="hidden" class="radiografia_evidencia" name="radiografia_evidencia">
+                        <div class="form-group">
+                            <label>Observações</label>
+                            <textarea class="radiografia_observacao_evidencia" name="radiografia_observacao_evidencia" rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Odontograma -->
+            <div class="form-group">
+                <label>Odontograma</label>
+                <div class="evidencia-imagem-container">
+                    <div class="evidencia-imagem-preview">
+                        <img class="odontograma_preview" src="" alt="Nenhuma imagem" style="max-width: 200px; max-height: 200px;">
+                    </div>
+                    <div class="evidencia-imagem-inputs">
+                        <input type="file" class="odontograma_input" accept="image/*">
+                        <input type="hidden" class="odontograma_evidencia" name="odontograma_evidencia">
+                        <div class="form-group">
+                            <label>Observações</label>
+                            <textarea class="odontograma_observacao_evidencia" name="odontograma_observacao_evidencia" rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Documentos -->
+            <div class="form-group">
+                <label>Documentos</label>
+                <div class="evidencia-imagem-container">
+                    <div class="evidencia-imagem-preview">
+                        <img class="documentos_preview" src="" alt="Nenhuma imagem" style="max-width: 200px; max-height: 200px;">
+                    </div>
+                    <div class="evidencia-imagem-inputs">
+                        <input type="file" class="documentos_input" accept="image/*,.pdf">
+                        <input type="hidden" class="documentos_evidencia" name="documentos_evidencia">
+                        <div class="form-group">
+                            <label>Observações</label>
+                            <textarea class="documentos_observacao_evidencia" name="documentos_observacao_evidencia" rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <input type="hidden" class="evidencia_id" name="evidencia_id">
+            <button type="button" class="btn-deletar-evidencia admin-ou-perito">Excluir Evidência</button>
+        </div>
+    </div>
+    
+    <button type="button" id="adicionar-evidencia" class="btn-adicionar admin-ou-perito">Adicionar Nova Evidência</button>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" id="voltarBtn" class="btn-voltar">Voltar</button>
+                <button type="button" id="deletarBtn" class="btn-deletar admin-ou-perito">Deletar Caso</button>
+                <button type="submit" id="atualizarBtn" class="btn-atualizar admin-ou-perito">Atualizar Caso</button>
+            </div>
+        </form>
+        
+        <div id="mensagem" class="mensagem"></div>
+    </div>
+
+    <script src="/js/features/detalhes-caso.js"></script>
+</body>
+</html>

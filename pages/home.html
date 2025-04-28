@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACCLP</title>
+  <link rel="stylesheet" href="/assets/styles/home.css">
+  <link rel="stylesheet" href="/assets/styles/listagem-caso.css">
+  <link rel="stylesheet" href="/assets/styles/novo-caso.css">
+  <link rel="stylesheet" href="/assets/styles/detalhes-caso.css">
+  <link rel="stylesheet" href="/assets/styles/perfil.css">
+  <link rel="stylesheet" href="/assets/styles/atualiza-perfil.css">
+  <link rel="stylesheet" href="/assets/styles/listagem-usuario.css">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="logo">ACCLP</div>
+    <nav class="nav-links">
+      <a href="#">CASOS</a>
+      <a href="#">RELATÓRIOS</a>
+      <a href="#">BANCO DE DADOS</a>
+    </nav>
+    <div class="user-info">
+      <img id="userProfileImage" src="https://via.placeholder.com/35" alt="Foto do Usuário">
+      <div class="user-details">
+        <span id="userName">Usuário Logado</span>
+        <span id="userRole" class="user-role">Perfil</span>
+      </div>
+      <button id="logoutBtn" class="logout-btn" title="Sair do sistema">
+        <i class="fas fa-sign-out-alt"></i>
+      </button>
+    </div>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h3>Casos</h3>
+      </div>
+      <nav class="sidebar-menu">
+        <a href="#" class="sidebar-item">
+          <i class="fas fa-list"></i>
+          <span>Listagem de Casos</span>
+        </a>
+        <a href="#" class="sidebar-item admin-ou-perito">
+          <i class="fas fa-plus-circle"></i>
+          <span>Novo Caso</span>
+        </a>
+      </nav>
+  
+      <!-- Nova seção de Laudos -->
+      <div class="sidebar-header admin-ou-perito">
+        <h3>Laudos</h3>
+      </div>
+      <nav class="sidebar-menu admin-ou-perito">
+        <a href="#" class="sidebar-item" id="todosLaudosLink">
+          <i class="fas fa-file-medical"></i>
+          <span>Todos os Laudos</span>
+        </a>
+        <a href="#" class="sidebar-item" id="meusLaudosLink">
+          <i class="fas fa-file-signature"></i>
+          <span>Meus Laudos</span>
+        </a>
+      </nav>
+  
+      <div class="sidebar-header admin-only" id="usuariosHeader" style="display: none;">
+        <h3>Usuários</h3>
+      </div>
+      <nav class="sidebar-menu admin-only" id="usuariosMenu" style="display: none;">
+        <a href="#" class="sidebar-item" id="listarUsuariosLink">
+          <i class="fas fa-user"></i>
+          <span>Listar Usuários</span>
+        </a>
+        <a href="#" class="sidebar-item" id="cadastrarUsuarioLink">
+          <i class="fas fa-user-plus"></i>
+          <span>Cadastrar Usuário</span>
+        </a>
+      </nav>
+    </aside>
+  
+    <main>
+      <!-- Conteúdo da página -->
+      <p style="padding: 20px;">Carregando...</p>
+    </main>
+  </div>
+
+  <!-- Módulos JavaScript -->
+  <script src="/js/features/integration/1-core.js"></script>
+  <script src="/js/features/integration/2-listagem-casos.js"></script>
+  <script src="/js/features/integration/3-cadastro-caso.js"></script>
+  <script src="/js/features/integration/4-detalhes-caso.js"></script>
+  <script src="/js/features/integration/5-perfil-usuario.js"></script>
+  <script src="/js/features/integration/6-atualizar-perfil.js"></script>
+  <script src="/js/features/integration/7-cadastro-usuario.js"></script>
+  <script src="/js/features/integration/8-listagem-usuarios.js"></script>
+  <script src="/js/features/integration/9-perfil-usuario-by-id.js"></script>
+  <script src="/js/features/integration/10-atualizar-perfil-by-id.js"></script>
+  
+  <!-- Arquivo principal (inicialização) -->
+  <script src="/js/features/integration/0-main.js"></script>
+</body>
+</html>
