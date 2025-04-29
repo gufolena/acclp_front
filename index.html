@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odonto Legal - Login</title>
     <link rel="stylesheet" href="/assets/styles/login.css">
+    <link rel="manifest" href="/assets/manifest/manifest.json" />
+    <meta name="theme-color" content="#0d6efd">
 </head>
 <body>
     <div class="container">
@@ -26,16 +28,26 @@
                 </div>
                 
                 <button type="submit" class="btn-login">Entrar</button>
-                
-                <!-- <div class="additional-links">
-                    <a href="#">Esqueceu a senha?</a>
-                    <a href="#">Registrar</a>
-                </div> -->
             </form>
             <div id="mensagem"></div>
         </div>
     </div>
 
-    <script src="/js/features/script.js"></script>
+    <script src="/assets/js/features/script.js"></script>
+
+    <!-- Registro do Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado com sucesso:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('Falha ao registrar o Service Worker:', error);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
